@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WorkingTime</string>
+    <string name="starting_time">Working Time Helper</string>
+    <string name="time_example">Ex: 07:00</string>
+    <string name="calculate_shift">Calculate Shift</string>
+    <string name="ideal_shift">Ideal Shift</string>
+    <string name="max_shift">Max Shift</string>
+    <string name="small_extra">15 Mins Extra</string>
+    <string name="large_extra">30 Mins Extra</string>
+    <string name="clear">Clear</string>
 </resources>
