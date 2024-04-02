@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         startComponents()
-        calculateShiftButton.setOnClickListener() {
+        calculateShiftButton.setOnClickListener {
             calculateShift()
         }
 
-        clearButton.setOnClickListener(){
+        clearButton.setOnClickListener {
             clearFields()
         }
         testingTest()
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun clearFields(){
+    private fun clearFields() {
         idealShiftDisplay.text = "00:00:00"
         maxShiftDisplay.text = "00:00:00"
         smallExtraDisplay.text = "00:00:00"
