@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         clearButton.setOnClickListener {
             clearFields()
         }
-        testingTest()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -92,18 +91,5 @@ class MainActivity : AppCompatActivity() {
         maxShiftDisplay.text = "00:00:00"
         smallExtraDisplay.text = "00:00:00"
         largeExtraDisplay.text = "00:00:00"
-    }
-
-    private fun testingTest() {
-        val timeConverter = ToTimeConverter()
-        val current = LocalDateTime.of(2024, 3, 31, 7, 0, 0)
-        val currentTime = timeConverter.convertToLocalTime(current)
-        val shiftCalculator = ShiftCalculator(currentTime)
-
-        val shift = shiftCalculator.calculateShift()
-        val maxShift = shiftCalculator.calculateMaxShift()
-        val bigExtra = shiftCalculator.calculateExtraHours(ExtraHourType.LARGE)
-        val smallExtra = shiftCalculator.calculateExtraHours(ExtraHourType.SMALL)
-
     }
 }
