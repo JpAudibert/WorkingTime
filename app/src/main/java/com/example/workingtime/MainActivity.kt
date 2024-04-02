@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -16,13 +17,13 @@ import java.time.LocalDateTime
 
 @RequiresApi(Build.VERSION_CODES.O)
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var timeToCalculate: TextInputEditText
+    private lateinit var timeToCalculate: EditText
     private lateinit var idealShiftDisplay: TextView
     private lateinit var maxShiftDisplay: TextView
     private lateinit var smallExtraDisplay: TextView
     private lateinit var largeExtraDisplay: TextView
     private lateinit var calculateShiftButton: Button
+    private lateinit var clearButton: Button
     private val toTimeConverter = ToTimeConverter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         startComponents()
         calculateShiftButton.setOnClickListener() {
             calculateShift()
+        }
+
+        clearButton.setOnClickListener(){
+            clearFields()
         }
         testingTest()
 
@@ -50,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         smallExtraDisplay = findViewById(R.id.smallExtraDisplay)
         largeExtraDisplay = findViewById(R.id.largeExtraDisplay)
         calculateShiftButton = findViewById(R.id.calculateShiftBtn)
+        clearButton = findViewById(R.id.clearBtn)
     }
 
     private fun calculateShift() {
@@ -63,9 +69,9 @@ class MainActivity : AppCompatActivity() {
             idealShiftDisplay.text = shiftCalculator.calculateShift().toString()
             maxShiftDisplay.text = shiftCalculator.calculateMaxShift().toString()
             smallExtraDisplay.text =
-                shiftCalculator.calculateExtraHours(ExtraHourType.LARGE).toString()
-            largeExtraDisplay.text =
                 shiftCalculator.calculateExtraHours(ExtraHourType.SMALL).toString()
+            largeExtraDisplay.text =
+                shiftCalculator.calculateExtraHours(ExtraHourType.LARGE).toString()
         }
     }
 
@@ -74,12 +80,19 @@ class MainActivity : AppCompatActivity() {
             return false
         }
 
-        if (timeToValidate != "") {
+        if (timeToValidate == "") {
             return false
         }
         return true
     }
 
+
+    private fun clearFields(){
+        idealShiftDisplay.text = "00:00:00"
+        maxShiftDisplay.text = "00:00:00"
+        smallExtraDisplay.text = "00:00:00"
+        largeExtraDisplay.text = "00:00:00"
+    }
 
     private fun testingTest() {
         val timeConverter = ToTimeConverter()

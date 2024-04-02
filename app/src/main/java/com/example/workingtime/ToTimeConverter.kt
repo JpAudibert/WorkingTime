@@ -20,7 +20,7 @@ class ToTimeConverter {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun convertToTime(timeInString: String) : Time {
-        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
         val localTime = LocalTime.parse(timeInString, formatter)
         val localDate = LocalDate.now()
 
