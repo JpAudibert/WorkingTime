@@ -7,5 +7,5 @@
     <string name="max_shift">Max Shift</string>
     <string name="small_extra">15 Mins Extra</string>
     <string name="large_extra">30 Mins Extra</string>
-    <string name="clear">Clear</string>
+    <string name="clear">Go Back</string>
 </resources>
